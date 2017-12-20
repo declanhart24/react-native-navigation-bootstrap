@@ -12,6 +12,7 @@ import {
   View
 } from 'react-native';
 import {Navigation} from 'react-native-navigation';
+import { registerScreens } from './screens';
 
 class react_native_navigation_bootstrap extends Component {
   render() {
@@ -51,10 +52,24 @@ const styles = StyleSheet.create({
   },
 });
 
-Navigation.registerComponent('react-native-navigation-bootstrap', () => react_native_navigation_bootstrap);
-Navigation.startSingleScreenApp({
-  screen: {
-    screen: 'react-native-navigation-bootstrap',
-    title: 'Navigation Bootstrap'
-  }
+registerScreens(); // this is where you register all of your app's screens
+
+var defaultTabs = []
+
+// start the app
+Navigation.startTabBasedApp({
+  tabs: [
+    {
+      label: 'Profile',
+      screen: 'Profile', // this is a registered name for a screen
+      icon: require('./assets/icon.png'),
+      title: 'Profile'
+    },
+    {
+      label: 'Settings',
+      screen: 'Settings',
+      icon: require('./assets/icon.png'),
+      title: 'Settings'
+    }
+  ],
 });
