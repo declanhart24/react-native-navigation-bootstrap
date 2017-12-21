@@ -6,6 +6,26 @@ class MyProfile extends Component {
 
     state = { loading: false, profile: {"firstName":"John","lastName":"Smith","email":"johnsmith@gmail.com","Known":"Johny"} }
 
+    constructor(props) {
+        super(props);
+        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+    }
+    onNavigatorEvent(event) {
+        switch(event.id) {
+          case 'willAppear':
+           break;
+          case 'didAppear':
+            alert('MyProfile will appear');
+            break;
+          case 'willDisappear':
+            break;
+          case 'didDisappear':
+            break;
+          case 'willCommitPreview':
+            break;
+        }
+      }
+      
     render() {
         return (
           <View>

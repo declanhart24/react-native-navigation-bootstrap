@@ -6,7 +6,24 @@ class Settings extends Component {
     {
         super(props)
         this.showModal = this.showModal.bind(this)
+        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
     }
+
+    onNavigatorEvent(event) {
+        switch(event.id) {
+          case 'willAppear':
+           break;
+          case 'didAppear':
+            alert('Settings will appear');
+            break;
+          case 'willDisappear':
+            break;
+          case 'didDisappear':
+            break;
+          case 'willCommitPreview':
+            break;
+        }
+      }
 
     render() {
         return (
